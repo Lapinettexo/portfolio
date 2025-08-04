@@ -94,6 +94,7 @@ body {
     width: 30rem;
     border-radius: 0.5em;
     margin-right: 2rem;
+    margin-left: 2rem;
     height: 75%;
 }
 
@@ -135,6 +136,7 @@ body {
     font-weight: 900;
     margin: 0;
     line-height: 0.9;
+    margin-right: 2rem;
 }
 
 .text-border{
@@ -150,7 +152,7 @@ body {
 .info-card{
     position: absolute;
   top: 70%; /* ajuste verticalement */
-  left: 70%; /* ajuste horizontalement */
+  left: 80%; /* ajuste horizontalement */
   transform: translate(-50%, -50%); /* centre au milieu du texte */
   /* width: 20rem; */
   background: black;
@@ -176,8 +178,8 @@ body {
   align-items: center;
   padding-left: 0;
   text-align: left;
-  margin-top: 0;
-  margin-bottom: 0;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
   padding-right: 1rem;
   font-family: Inria Serif;
   
@@ -187,9 +189,11 @@ body {
   height: 2.2rem;
   margin-left: 1rem;
   margin-right: 1rem;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 .contacts {
-  margin: 0;
+  margin-top: 0;
   font-size: 1.5rem;
 }
 

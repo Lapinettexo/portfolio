@@ -1,0 +1,18 @@
+[
+  {
+    "title": "Landing Page Redesign",
+    "description": "A modern and responsive redesign for a skincare brand.",
+    "images": ["data/imgs/LunaSkin.png"]
+  },
+  {
+    "title": "Dashboard UI",
+    "description": "A clean admin dashboard interface for analytics.",
+    "images": ["data/imgs/ASAL.png"]
+  },
+  {
+    "title": "Poster design",
+    "description": "A concept poster ad design for a fictional brand.",
+    "images": ["data/imgs/LUNARA BLOOM.png"]
+  }
+
+]

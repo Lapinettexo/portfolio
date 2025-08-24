@@ -6,6 +6,8 @@
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="images/christmas-stars.png" type="image/png">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
@@ -25,8 +27,8 @@
             </div>
 
             <div class="buttons">
-                <a>About me</a>
-                <a>Work</a>
+                <a href="#about-me">About me</a>
+                <a href="#works">Work</a>
                 <button class="capsule-button" id="contactBtn">CONTACT ME</button>
             </div>
         </div>
@@ -75,12 +77,12 @@
 
     </div>
 
-    <div class="about">
+    <div class="about" id="about-me">
 
         <div class="text-description">
             <H1>HELLO, I AM AMINA !</H1>
 
-            <p class="description">I bring ideas to life on screen, by coding sleek, responsive websites and crafting bold visuals that make an impact. Whether it's front-end magic, intuitive web design, or striking graphics, I blend tech and creativity to make digital experiences that feel just right.</p>
+            <p class="description">I bring ideas to life on screen, by coding sleek, responsive websites and crafting bold visuals that make an impact. Whether it's <b>front-end</b>, <b>intuitive web design</b>, or <b>striking graphics</b>, I blend tech and creativity to make digital experiences that feel just right.</p>
             
             <h1>Tools I Use</h1>
             <div class="icons">
@@ -94,35 +96,24 @@
         <img src="images/ME AI no background.png" alt="big image of myself" class="myself">
     </div>
 
-    <!-- <div class="works">
-        <h1>What I Do</h1>
 
-        <div class="web-dev">
-            <h2>Web Developpement</h2>
-        </div>
 
-        <div class="design">
-            <h2>Design & Web Design</h2>
-        </div>
-    </div> -->
+    <div class="infinite-scroll-container" id="works">
+        <div class="infinite-scroll-track" id="scrollTrack"></div>
+    </div>
 
-    <section class="works-section">
-        <div class="works-container" id="worksContainer">
-            <!-- Cards will be injected here -->
-        </div>
-    </section>
 
     <div class="contact-me" id="contact">
         <h1>GET IN TOUCH</h1>
         <form action="">
 
-            <input type="text">
-            <input type="email">
-            <input type="text">
+            <input type="text" class="small-field" placeholder="Your name">
+            <input type="email" class="small-field" placeholder="Your email">
+            <textarea class="big-field" placeholder="Your message here..."></textarea>
 
             <div class="buttons-email">
-                <input type="submit">
-                <input type="reset">
+                <input type="submit" class="capsule-button" value="CONTACT ME">
+                <input type="reset" value="Clear" class="clear-button">
             </div>
 
         </form>

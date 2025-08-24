@@ -7,12 +7,22 @@
   {
     "title": "Dashboard UI",
     "description": "A clean admin dashboard interface for analytics.",
-    "images": ["data/imgs/ASAL.png"]
+    "images": ["data/imgs/SA design.png"]
   },
   {
     "title": "Poster design",
     "description": "A concept poster ad design for a fictional brand.",
     "images": ["data/imgs/LUNARA BLOOM.png"]
+  },
+  {
+    "title": "Poster design",
+    "description": "A concept poster ad design for a fictional brand.",
+    "images": ["data/imgs/SCOOPIE (1).png"]
+  },
+  {
+    "title": "Poster design",
+    "description": "A concept poster ad design for a fictional brand.",
+    "images": ["data/imgs/EchoSkin X1.png"]
   }
 
 ]

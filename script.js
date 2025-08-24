@@ -17,49 +17,49 @@ document.getElementById('cvBtn').addEventListener('click', () => {
 });
 
 fetch('data/works.json')
-  .then(res => {
-    if (!res.ok) {
-      throw new Error(`HTTP error! status: ${res.status}`);
-    }
-    return res.json();
-  })
+  .then(response => response.json())
   .then(data => {
-    console.log('Data loaded:', data);
-    const container = document.getElementById('worksContainer');
+    const track = document.getElementById('scrollTrack');
 
-    data.forEach((work, index) => {
-      const card = document.createElement('div');
-      card.classList.add('work-card');
-      card.style.zIndex = index + 1; // Set z-index dynamically - newer cards on top
+    function createCard(item) {
+      const div = document.createElement('div');
+      div.classList.add('infinite-scroll-card');
+      div.innerHTML = `
+        <div class="card-content">
+          <img src="${item.images[0]}" alt="${item.title}" class="card-image">
+          <h3>${item.title}</h3>
+          <p>${item.description}</p>
+        </div>`;
+      return div;
+    }
 
-      card.innerHTML = `
-        <img src="${work.images[0]}" alt="${work.title}" onerror="this.src='https://via.placeholder.com/600x300/cccccc/666666?text=Project+Image'">
-        <h3>${work.title}</h3>
-        <p>${work.description}</p>
-      `;
+    // Generate cards from JSON
+    data.forEach(item => track.appendChild(createCard(item)));
 
-      container.appendChild(card);
+    // Duplicate for seamless scroll
+    data.forEach(item => track.appendChild(createCard(item)));
 
-      // Create intersection observer for each card
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('visible');
-            }
-            // Don't remove visible class to maintain stacking effect
-          });
-        },
-        {
-          root: null,
-          rootMargin: '0px 0px -50% 0px',
-          threshold: 0.1
+    // ✅ Wait for DOM to render so we can measure size
+    requestAnimationFrame(() => {
+      const firstCard = document.querySelector('.infinite-scroll-card');
+      const cardWidth = firstCard.offsetWidth; // actual width in px
+      const gap = parseInt(getComputedStyle(track).gap); // CSS gap in px
+      const totalCards = data.length;
+      const totalWidth = (cardWidth * totalCards) + (gap * (totalCards - 1));
+
+      // ✅ Animation duration proportional to number of cards
+      const duration = totalCards * 5; // 5s per original set
+      track.style.animation = `scroll-cards ${duration}s linear infinite`;
+
+      // ✅ Inject dynamic keyframes based on real size
+      const style = document.createElement('style');
+      style.innerHTML = `
+        @keyframes scroll-cards {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-${totalWidth}px); }
         }
-      );
-
-      observer.observe(card);
+      `;
+      document.head.appendChild(style);
     });
   })
-  .catch(error => {
-    console.error('Error loading works data:', error);
-  });
+  .catch(error => console.error('Error loading JSON:', error));
